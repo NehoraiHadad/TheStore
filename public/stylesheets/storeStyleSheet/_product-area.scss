@@ -1,0 +1,219 @@
+
+
+
+#protuct-area{
+    background: white;
+    grid-area: protuct-area;
+    height: calc(100vh - 135px);
+    width: 100%;
+    overflow-x: hidden;
+    text-align: center;
+    padding-top: 10px;
+        #titel-category{
+            font-size: 30rem;
+        }
+        .grid-producs{ 
+            padding: 15px;
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+        }
+    }
+    .grid-card-product{
+        display: grid;
+        max-width: 220px;
+        background: white;
+        gap: 5px;
+        grid-template-areas: "img-card-product img-card-product"
+                            "name-card-product name-card-product"
+                            "price-card-product price-card-product"
+                            "quantity-btn-card quantity-btn-card";
+        border: solid 1px var(--hover-color);
+        border-radius: 2px;
+            &:hover{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) ;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            &:active{
+                box-shadow: none;
+                transition: 0.3s;
+            }
+            .img-card-product{
+                grid-area: img-card-product;
+                height: 218px;
+                max-width: 218px;
+            }
+            .name-card-product{
+                grid-area: name-card-product;
+                font-size: 25rem;
+            }
+            .price-card-product{
+                grid-area: price-card-product;
+                font-size: 20rem;
+            }
+            .quantity-btn-card{
+                grid-area: quantity-btn-card;
+                display: flex;
+                .quantity-card-product {
+                    height: 30px;
+                    width: 50%;
+                    text-align: center;
+                    &.red-border{
+                        border: 1px solid red;
+                        border-radius: 2px;
+                        transition: 1s;
+                    }
+                }
+                .btn-card-product{
+                    height: 30px;
+                    width: 100%;
+                }
+            }
+
+    }
+
+#full-card-product{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-height: 70vh;
+    min-width: 60vw;
+    max-width: 70vw;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) ;
+    border-radius: 2px;
+    animation: blowUpModal .2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    z-index: 10;
+    overflow-x: hidden;
+    &.down{
+        animation: blowDownModal .2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    }
+    display: flex;
+    flex-direction: column;
+        #full-card-view{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-areas:
+                            "full-card-img full-card-name"
+                            "full-card-img full-card-price"
+                            "full-card-img full-quantity-btn";
+            .full-card-img{
+                grid-area: full-card-img;
+                align-self: center;
+                justify-self: start;
+                margin-left: 25px ;
+                height: 350px;
+                width: 350px;
+            }
+            .full-card-name{
+                grid-area: full-card-name;
+                font-size: 30rem;
+                align-self: center;
+                justify-self: start;
+            }
+            .full-card-price{
+                grid-area: full-card-price;
+                font-size: 25rem;
+                align-self: flex-start;
+                justify-self: start;
+            }
+            .full-quantity-btn{
+                grid-area: full-quantity-btn;
+                display: flex;
+                flex-direction: column;
+                padding: 5px;
+                align-self: flex-start;
+                justify-self: start;
+                gap: 5px;
+                height: 110px;
+                width: 150px;
+                .full-card-quantity{
+                    height: 35px;
+                    text-align: center;
+                    &.red-border{
+                        border: 1px solid red;
+                        border-radius: 2px;
+                        transition: 1s;
+                    }
+                }
+                .full-card-btn{
+                    height: 35px;
+                }
+            }
+        }
+        #full-card-details{
+            padding-top: 10px;
+            padding-right: 10px;
+            h1{
+                padding-right: 15px;
+                text-align: start;
+                font-size: 30rem;
+            }
+            p{
+                padding: 10px;
+                text-align: start;
+                font-size: 15px;
+                line-height: 25rem;
+            }
+        }
+    }
+
+#overlay-blur{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .0);
+    backdrop-filter: blur(0px);
+    z-index: 5;
+    animation: fadeInOverlay .2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+    &.out{
+        animation: fadeOutOverlay .2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    }
+}
+
+
+
+@keyframes fadeInOverlay {
+    0% {
+      background: rgba(0, 0, 0, .0);
+    }
+    100% {
+        background: rgba(0, 0, 0, .3);    
+        backdrop-filter: blur(2px);
+    }
+        
+  }
+  
+  @keyframes blowUpModal {
+      0% {
+          transform:translate(-50%, -50%) scale(0) ;
+        }
+        100% {
+            transform:translate(-50%, -50%) scale(1)  ;
+        }
+    }
+    
+    @keyframes fadeOutOverlay {
+        0% {
+            background: rgba(0, 0, 0, .3);
+            backdrop-filter: blur(2px);
+          }
+          100% {
+              background: rgba(0, 0, 0, .0);  
+              backdrop-filter: blur(0px);  
+          }
+    }
+
+  @keyframes blowDownModal {
+    0% {
+        transform:translate(-50%, -50%) scale(1)  ;
+    }
+    100% {
+        transform:translate(-50%, -50%) scale(0) ;
+    }
+  }

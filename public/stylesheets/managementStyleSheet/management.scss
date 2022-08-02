@@ -1,0 +1,28 @@
+@import '../variables';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    :focus {outline:none}
+
+}
+
+html{
+    font-size: 1px;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+.hide{
+    display: none !important;
+}
+
+
+@import 'management_header';
+@import 'management_navbar';
+@import 'management_main';
+@import 'management_footer';

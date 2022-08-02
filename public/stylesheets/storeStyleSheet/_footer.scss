@@ -1,0 +1,48 @@
+
+
+#footer{
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: var(--secondary-green-color);
+    justify-content: space-between;
+    .form-callback{
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        max-width: 400px;
+        gap: 10px;
+            #title-form{
+                font-size: 20px;
+            }
+            div{
+                width: 100%;
+                input{
+                    padding: 5px;
+                    height: 30px;
+                    width: 100%;
+                    
+                }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            }
+            .btn-form {
+                height: 30px;
+                width: 100%;
+            }
+        }
+  
+
+    #info-dev{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        justify-content: end;
+        p {
+            font-size: 15px;
+        }
+    }
+}

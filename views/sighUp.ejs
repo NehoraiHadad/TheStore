@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="\stylesheets/storestylesheet\sighUp.css">
+    <script src="/javascripts/sighUp.js" async></script>
+    <title>TheShop - sighUp</title>
+</head>
+<body>
+    <div id="sigh-up">
+        <div id="form-right">
+            <h1>ברוכים הבאים!</h1>
+            <h3>להצטרפות מלאו פרטים:</h3>
+            <form class="form-sigh-up" method="post" action="register" onsubmit="return validateMyForm();">
+                <div>
+                    <label for="first name"></label>
+                    <input type="text" name="firstName" id="first-name" placeholder="שם פרטי">
+                </div>
+                <div>
+                    <label for="last name"></label>
+                    <input type="text" name="lastName" id="last-name" placeholder="שם משפחה">
+                </div>
+                <div>
+                    <label for="phone"></label>
+                    <input type="number" name="phone" id="phone" placeholder="מספר פלאפון">
+                </div>
+                <div>
+                    <label for="email"></label>
+                    <input type="email" name="email" id="email" placeholder="כתובת המייל">
+                </div>
+                <div>
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password" placeholder="סיסמה">
+                </div>
+                <button type="submit" id="btn-form">הצטרף</button>
+            </form> 
+            <a id="form-login-link" href="login">יש לי משתמש - אני רוצה להתחבר</a>
+            <% if (typeof alertUserExist != '') { %>
+                <p id="alertUserExist"><%= alertUserExist %> </p>
+            <% } %>
+        </div>
+        <img src="\images\vintage-door.png" alt="">
+    </div>
+</body>
+</html>

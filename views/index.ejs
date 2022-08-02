@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/storestylesheet/mainStyle.css">
+    <script src="/javascripts/script.js" async></script>
+    <script src="https://kit.fontawesome.com/ed3b3b4124.js" crossorigin="anonymous"></script>
+    <title>TheShop</title>
+</head>
+<body>
+    <div id="main-layout" class="main-grid-container">
+      
+        <%- include ('./partials/header') %>   
+
+        
+        <div id="protuct-area">
+            <h2 id="titel-category">כותרת הקטגוריה</h2>
+            <div id="prodacts-card" class="grid-producs">
+                <div class="grid-card-product ">
+                    <img class="img-card-product" src="\images\cucumber.jpg" alt="">
+                    <h1 class="name-card-product">מלפפון</h1>
+                    <h2 class="price-card-product">3.80 ₪</h2>
+                    <div class="quantity-btn-card">
+                        <input class="quantity-card-product" type="number" name="quantity" id="quantity" min="0" max="50">
+                        <button class="btn-card-product">הוסף לסל</button>
+                    </div>
+                </div>
+
+
+                <div class="grid-card-product">
+                    <img src="/images/tomato.jpg" alt="" class="img-card-product">
+                    <h1 class="name-card-product">עגבניה</h1>
+                    <h2 class="price-card-product">2.80 ₪</h2>
+                    <div class="quantity-btn-card">
+                        <input class="quantity-card-product" type="number" name="quantity" id="quantity" min="0" max="50">
+                        <button class="btn-card-product">הוסף לסל</button>
+                    </div>
+                </div>
+
+                <div class="grid-card-product">
+                    <img src="/images/batzal.jpg" alt="" class="img-card-product">
+                    <h1 class="name-card-product">בצל</h1>
+                    <h2 class="price-card-product">1.90 ₪</h2>
+                    <div class="quantity-btn-card">
+                        <input class="quantity-card-product" type="number" name="quantity" id="quantity" min="0" max="50">
+                        <button class="btn-card-product">הוסף לסל</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="full-card-product" class="hide">
+                <div id="full-card-view">
+                    <!-- content will by added here -->
+                </div>
+                <div id="full-card-details">
+                    <h1>פרטים נוספים:</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quia voluptatum magni aperiam harum corrupti quidem vitae eius? Officiis sequi deleniti nostrum quaerat, tempore alias quasi obcaecati nisi perspiciatis ab?</p>
+                </div>
+            </div>
+            <div id="overlay-blur" class="hide"></div>
+        </div>
+
+        <div id="shopping-cart-area">
+            <h2 id="titel-shopping-cart">סל הקניות</h2>
+            <button id="btn-remove-all">מחק הכל</button>
+            <hr>
+            <div id="cart-items">
+                <!-- items will be added here -->
+            </div>
+            <div id="total-cart">
+                <hr>
+                <h1 id="total-cart-el">לתשלום: 0.00 ₪</h1>
+            </div>
+        </div>
+
+        <%- include ('./partials/footer.ejs') %> 
+        
+    </div>
+    
+</body>
+</html>

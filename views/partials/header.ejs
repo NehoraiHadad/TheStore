@@ -1,0 +1,31 @@
+<header id="header">
+    <div>
+        <h1 id="store-name-titel">שם החנות</h1>
+    </div>
+</header>
+
+<nav id="nav">
+    <ul id="flex-nav-container">
+        <li> <a href="#">בית</a></li>
+        <li id="category-list-btn"><a tabindex="0" href="#">קטגוריות</a>
+            <ul class="category-list" >
+                <li><a href="">פירות וירקות</a></li>
+                <li><a href="">מקורר</a></li>
+                <li><a href="">חלבי</a></li>
+                <li><a href="">בשרי</a></li>
+                <li><a href="">יבשים</a></li>
+            </ul>
+        </li>
+        <li><a href="#">מבצעים!</a></li>
+        <li><a href="#">עלינו</a></li>
+    </ul>
+    <div class="left-nav">
+        <input class="search-bar" type="text" placeholder="חיפוש...">
+        <a href="/users/login" id="user-profile"><i class="fa-solid fa-circle-user"></i>
+            <div id="user-profile-name">
+                שלום <%= name %> 
+            </div> 
+        </a>
+        <a href="/users/logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    </div>
+</nav>

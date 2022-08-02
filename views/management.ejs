@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/managementStyleSheet/management.css">
+    <title>management</title>
+</head>
+<body>
+    <header>
+        <div id="management-name-titel">
+            ניהול
+        </div>
+    </header>
+    
+    <nav >
+        <ul id="flex-nav-container">
+            <li> <a href="#">בית</a></li>
+            <li id="category-list-btn"><a tabindex="0" href="#">קטגוריות</a>
+                <ul class="category-list" >
+                    <li><a href="">משתמשים</a></li>
+                    <li><a href="">מלאי</a></li>
+                </ul>
+            </li>
+            <li><a href="#">עלינו</a></li>
+        </ul>
+        <div class="left-nav">
+            <input class="search-bar" type="text" placeholder="חיפוש...">
+            <a href="/admin/login" id="admin-profile"><i class="fa-solid fa-circle-user"></i>
+                <div id="admin-profile-name">
+                    שלום <%= name %> 
+                </div> 
+            </a>
+            <a href="/users/logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </nav>
+
+    
+    <main>
+        <div class="main-titel"> כותרת </div>
+        <div class="right-main">
+            <div class="table-container">
+                <table>
+
+                </table>
+            </div>
+        </div>
+        <div class="left-main">
+            <div class="diagram-container">
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="info-dev">
+            <p dir="ltr">Written by Nehorai Hadad</p>
+        </div>
+    </footer>
+</body>
+</html>

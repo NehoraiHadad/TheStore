@@ -1,0 +1,98 @@
+@import '../variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    :focus {outline:none}
+}
+
+html{
+    font-size: 1px;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+.hide{
+    display: none !important;
+}
+
+.error-form::placeholder{
+    color: red;
+}
+
+#login{
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) ;
+  background: var(--secondary-green-color);
+  height: 70vh;
+  width: 70vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
+  img{
+    flex: 1;
+    max-width: 50%;
+    height: 100%;
+    align-self: flex-end;
+  }
+  #form-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50%;
+    height: 100%;
+    text-align: center;
+    padding-top: 30px;
+      h1{
+      font-size: 35rem;
+      padding: 5px;
+      }
+      h3{
+        font-size: 25rem;
+        padding: 5px;
+      }
+      .form-login{
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      gap: 10px;
+          div{
+              width: 100%;
+              input{
+                  padding: 5px;
+                  height: 30px;
+                  width: 100%;
+              }
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+                }
+          }
+          #btn-form {
+              height: 30px;
+              width: 100%;
+              margin-top: 10px;
+          }
+      }
+      #form-sighUp-link{
+        font-size: 13rem;
+        color: black;
+      }
+  }
+  #failureMessageAlert{
+    font-size: 15rem;
+    color: red;
+    padding-top: 15px;
+  }
+  }
+  

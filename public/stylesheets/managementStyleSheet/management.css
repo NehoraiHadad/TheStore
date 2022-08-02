@@ -1,0 +1,169 @@
+:root {
+  --primary-color: rgb(254, 250, 224);
+  --secondary-color: rgb(250, 237, 205);
+  --hover-color: rgb(212, 163, 115);
+  --primary-green-color: rgb(204, 213, 174);
+  --secondary-green-color: rgb(233, 237, 201);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* :focus {
+  outline: none;
+}
+
+html {
+  font-size: 1px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+.hide {
+  display: none !important;
+}
+
+:root {
+  --primary-color: rgb(254, 250, 224);
+  --secondary-color: rgb(250, 237, 205);
+  --hover-color: rgb(212, 163, 115);
+  --primary-green-color: rgb(204, 213, 174);
+  --secondary-green-color: rgb(233, 237, 201);
+}
+
+header {
+  background: var(--secondary-green-color);
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header #management-name-titel {
+  font-size: 60rem;
+}
+
+:root {
+  --primary-color: rgb(254, 250, 224);
+  --secondary-color: rgb(250, 237, 205);
+  --hover-color: rgb(212, 163, 115);
+  --primary-green-color: rgb(204, 213, 174);
+  --secondary-green-color: rgb(233, 237, 201);
+}
+
+nav {
+  background: var(--primary-green-color);
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+nav #flex-nav-container {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  height: 100%;
+}
+nav #flex-nav-container li {
+  height: 100%;
+}
+nav #flex-nav-container li a {
+  display: block;
+  height: 100%;
+  padding: 10px 15px;
+  font-size: 20rem;
+  text-decoration: none;
+  color: black;
+}
+nav #flex-nav-container li a:hover {
+  background: var(--hover-color);
+}
+nav .left-nav {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+}
+nav .left-nav .search-bar {
+  height: 30px;
+  margin: 5px;
+  padding: 10px;
+}
+nav .left-nav a {
+  text-decoration: none;
+}
+nav .left-nav a i {
+  font-size: 28rem;
+  color: var(--hover-color);
+  padding: 5px;
+}
+nav .left-nav #user-profile-name {
+  display: none;
+}
+nav .left-nav #user-profile:hover #user-profile-name {
+  font-size: 20rem;
+  position: absolute;
+  left: 50px;
+  display: block;
+}
+
+.category-list {
+  display: none;
+}
+
+#category-list-btn:hover .category-list {
+  display: block;
+  background-color: var(--primary-green-color);
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+#category-list-btn:hover .category-list li a {
+  display: block;
+  text-align: center;
+  height: 100%;
+  padding: 10px;
+  font-size: 20rem;
+  text-decoration: none;
+  color: black;
+}
+#category-list-btn:hover .category-list li a:hover {
+  background: var(--hover-color);
+}
+
+:root {
+  --primary-color: rgb(254, 250, 224);
+  --secondary-color: rgb(250, 237, 205);
+  --hover-color: rgb(212, 163, 115);
+  --primary-green-color: rgb(204, 213, 174);
+  --secondary-green-color: rgb(233, 237, 201);
+}
+
+main {
+  height: calc(100vh - 135px);
+}
+
+:root {
+  --primary-color: rgb(254, 250, 224);
+  --secondary-color: rgb(250, 237, 205);
+  --hover-color: rgb(212, 163, 115);
+  --primary-green-color: rgb(204, 213, 174);
+  --secondary-green-color: rgb(233, 237, 201);
+}
+
+footer {
+  height: 50px;
+  background: var(--secondary-green-color);
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+footer #info-dev {
+  font-size: 10rem;
+}/*# sourceMappingURL=management.css.map */

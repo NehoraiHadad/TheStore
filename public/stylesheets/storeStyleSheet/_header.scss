@@ -1,0 +1,13 @@
+
+
+#header{
+    background: var(--primary-color);
+    grid-area: header;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        #store-name-titel{
+            font-size: 60rem;
+        }
+}
