@@ -4,6 +4,9 @@
   --hover-color: rgb(212, 163, 115);
   --primary-green-color: rgb(204, 213, 174);
   --secondary-green-color: rgb(233, 237, 201);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
 }
 
 * {
@@ -28,14 +31,6 @@ body {
   display: none !important;
 }
 
-:root {
-  --primary-color: rgb(254, 250, 224);
-  --secondary-color: rgb(250, 237, 205);
-  --hover-color: rgb(212, 163, 115);
-  --primary-green-color: rgb(204, 213, 174);
-  --secondary-green-color: rgb(233, 237, 201);
-}
-
 header {
   background: var(--secondary-green-color);
   height: 90px;
@@ -45,14 +40,6 @@ header {
 }
 header #management-name-titel {
   font-size: 60rem;
-}
-
-:root {
-  --primary-color: rgb(254, 250, 224);
-  --secondary-color: rgb(250, 237, 205);
-  --hover-color: rgb(212, 163, 115);
-  --primary-green-color: rgb(204, 213, 174);
-  --secondary-green-color: rgb(233, 237, 201);
 }
 
 nav {
@@ -123,6 +110,7 @@ nav .left-nav #user-profile:hover #user-profile-name {
   background-color: var(--primary-green-color);
   position: absolute;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 5;
 }
 #category-list-btn:hover .category-list li a {
   display: block;
@@ -137,24 +125,93 @@ nav .left-nav #user-profile:hover #user-profile-name {
   background: var(--hover-color);
 }
 
-:root {
-  --primary-color: rgb(254, 250, 224);
-  --secondary-color: rgb(250, 237, 205);
-  --hover-color: rgb(212, 163, 115);
-  --primary-green-color: rgb(204, 213, 174);
-  --secondary-green-color: rgb(233, 237, 201);
+.main-titel {
+  text-align: center;
+  height: 40px;
+  padding: 5px;
+  font-size: 25rem;
 }
 
 main {
-  height: calc(100vh - 135px);
+  height: calc(100vh - 175px);
+  position: relative;
+  width: 100%;
+}
+main .split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+main .split.left-main {
+  left: 0;
+  background-color: var(--primary-color);
+}
+main .split.right-main {
+  right: 0;
+  background: var(--secondary-color);
+}
+main .split.left-main, main .split.right-main, main .split.left-main:before, main .split.right-main:before {
+  transition: var(--speed) all ease-in-out;
 }
 
-:root {
-  --primary-color: rgb(254, 250, 224);
-  --secondary-color: rgb(250, 237, 205);
-  --hover-color: rgb(212, 163, 115);
-  --primary-green-color: rgb(204, 213, 174);
-  --secondary-green-color: rgb(233, 237, 201);
+.hover-left .left-main {
+  width: var(--hover-width);
+}
+
+.hover-left .right-main {
+  width: var(--other-width);
+}
+
+.hover-right .right-main {
+  width: var(--hover-width);
+}
+
+.hover-right .left-main {
+  width: var(--other-width);
+}
+
+.right-main {
+  padding: 20px;
+}
+.right-main table {
+  border-collapse: collapse;
+  font-size: 20rem;
+  width: 100%;
+}
+.right-main table th {
+  background: var(--hover-color);
+}
+.right-main table td, .right-main table th {
+  border: 1px solid var(--primary-color);
+  padding: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.right-main table td .btn-user-table:hover, .right-main table th .btn-user-table:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: all ease-in-out 0.3s;
+}
+.right-main table tr:nth-child(even) {
+  background-color: var(--primary-color);
+}
+.right-main table tr:hover {
+  background-color: var(--hover-color);
+}
+
+.action-tb-user-table {
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+}
+.action-tb-user-table .btn-user-table {
+  text-decoration: none;
+  color: black;
+  background-color: var(--primary-color);
+  border: 1px solid var(--hover-color);
+  margin: 0px 3px;
+  padding: 0px 3px;
 }
 
 footer {

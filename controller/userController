@@ -1,0 +1,30 @@
+const connection = require('../config/database');
+
+
+// viwe users
+exports.viewAll = (req, res) => {
+    console.log('user controller - viewAll ----> ' );
+    connection.query('SELECT * FROM users', (err, rows) => {
+
+        if (!err) {
+            res.render('management', {rows, name: ''});
+        }
+        else {
+            console.log(err);
+        }
+    });
+}
+
+exports.viewDetails = (req, res) => {
+    console.log('user controller - viewDetails');
+    console.log(req.params.id);
+    connection.query('SELECT * FROM users WHERE id = ?', [req.params.id], (err, rows) => {
+
+        if (!err) {
+            res.render('viewUser', {rows, name: ''});
+        }
+        else {
+            console.log(err);
+        }
+    });
+}

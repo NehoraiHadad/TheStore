@@ -1,8 +1,7 @@
-
 const router = require('express').Router();
+const userController = require('../controller/userController');
 
-router.get('/', (req,res) => {
-    res.render('management', {name: ''}); //uses EJS to show admin name
-});
+router.get('/', userController.viewAll);
+router.get('/viewUser/:id', userController.viewDetails);
 
 module.exports = router;

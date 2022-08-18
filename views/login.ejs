@@ -25,9 +25,11 @@
                 <button type="submit" id="btn-form">כניסה</button>
             </form> 
             <a id="form-sighUp-link" href="sighUp">אין לי משתמש - אני רוצה להצטרף</a>
-
+            <% if ( typeof userNotExist != '') { %>
+                <p id="userNotExist"><%= userNotExist %> </p>
+            <% } %>
         </div>
-        <img src="\images\vintage-door.png" alt="">
+        <img src="/images/vintage-door1.png" alt="">
     </div>
 </body>
 </html>

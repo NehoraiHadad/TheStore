@@ -1,21 +1,19 @@
 const connection = require("../config/database");
 
 module.exports.isAuth = (req, res, next) => {
-    console.log('is Auth');
+    console.log('In ==> isAuth');
     console.log(req.isAuthenticated());
     if (req.isAuthenticated()) {
-        res.render('index', {name: JSON.stringify(req.user[0].first_name)
-        });
+        res.render('index', {name: req.user[0].first_name});
     } else {
         // res.status(401).json({ msg: 'You are not authorized to view this resource' });
         res.redirect('/users/login');
     }
 }
 
-
 module.exports.isAdmin = (req, res, next) => {
-    console.log('is Admin');
-
+    console.log('In ==> isAdmin');
+    
     if (req.isAuthenticated() && req.user.admin) {
         next();
     } else {
@@ -23,9 +21,8 @@ module.exports.isAdmin = (req, res, next) => {
     }
 }
 
-
 function userExists(req, res, done) {
-    console.log('userExist');
+    console.log('In ==> userExist');
     connection.query('SELECT * FROM users WHERE email = ? ', [req.body.email], (err, results) => {
         console.log(results);
         if (err) {

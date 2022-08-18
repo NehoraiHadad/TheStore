@@ -12,7 +12,6 @@ const MySQLStore = require('express-mysql-session')(session);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const managementRouter = require('./routes/management');
-// const authMiddelware = require('./routes/authMiddleware');
 
 const HOUR = 1000 * 60 * 60;
 
@@ -39,7 +38,7 @@ app.use(session({
   saveUninitialized: true,
   store: sessionStore,
   cookie: {
-    maxAge: HOUR * 3
+    maxAge: (HOUR/60)
   }
 }));
 
@@ -49,6 +48,7 @@ require('./config/passport');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
+  console.log( 'log from app.js -----> ');
   console.log(req.session);
   console.log(req.user);
   next();

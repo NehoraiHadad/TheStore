@@ -4,6 +4,9 @@
   --hover-color: rgb(212, 163, 115);
   --primary-green-color: rgb(204, 213, 174);
   --secondary-green-color: rgb(233, 237, 201);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
 }
 
 * {
@@ -106,7 +109,7 @@ body {
   font-size: 13rem;
   color: black;
 }
-#login #failureMessageAlert {
+#login #userNotExist {
   font-size: 15rem;
   color: red;
   padding-top: 15px;

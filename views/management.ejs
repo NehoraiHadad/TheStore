@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/managementStyleSheet/management.css">
+    <script src="/javascripts/management.js" async></script>
+    <script src="https://kit.fontawesome.com/ed3b3b4124.js" crossorigin="anonymous" async></script>
     <title>Management</title>
 </head>
 <body>
@@ -36,22 +38,49 @@
         </div>
     </nav>
     
+    <div class="main-titel"> כותרת </div>
     <main>
-        <div class="main-titel"> כותרת </div>
-        <div class="right-main">
+        <div class="right-main split">
             <div class="table-container">
                 <table>
-
+                    <thead>
+                        <tr>
+                            <th>מס' סידורי</th>
+                            <th>שם פרטי</th>
+                            <th>שם משפחה</th>
+                            <th>מייל</th>
+                            <th>טלפון</th>
+                            <th>מצב</th>
+                            <th>פעולה</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% rows.forEach(row => { %>
+                            <tr>
+                                <td> <%= row.id %>  </td>
+                                <td> <%= row.first_name %>  </td>
+                                <td> <%= row.last_name %>  </td>
+                                <td> <%= row.email %>  </td>
+                                <td> <%= row.phone %>  </td>
+                                <td> <%= row.status %>  </td>
+                                <td class="action-tb-user-table">
+                                    <a href="/management/viewUser/<%= row.id %> " type="button" class="btn-user-table"> הצג </a>
+                                    <a href="#" type="button" class="btn-user-table"> ערוך </a>
+                                    <a href="#" type="button" class="btn-user-table"> מחק </a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                </tbody>
                 </table>
             </div>
         </div>
-        <div class="left-main">
+        <div class="left-main split">
             <div class="diagram-container">
-
+                
             </div>
         </div>
     </main>
-
+    
     <footer>
         <div id="info-dev">
             <p dir="ltr">Written by Nehorai Hadad</p>
