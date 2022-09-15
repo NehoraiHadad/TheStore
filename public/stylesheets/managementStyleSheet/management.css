@@ -38,7 +38,7 @@ header {
   justify-content: center;
   align-items: center;
 }
-header #management-name-titel {
+header #name-title {
   font-size: 60rem;
 }
 
@@ -125,22 +125,31 @@ nav .left-nav #user-profile:hover #user-profile-name {
   background: var(--hover-color);
 }
 
-.main-titel {
-  text-align: center;
+main {
+  height: calc(100vh - 135px);
+  position: relative;
+  width: 100%;
+}
+main .main-header {
+  display: flex;
+  align-content: center;
   height: 40px;
   padding: 5px;
   font-size: 25rem;
 }
-
-main {
-  height: calc(100vh - 175px);
-  position: relative;
-  width: 100%;
+main .main-header .main-title {
+  justify-self: center;
+}
+main .main-header a {
+  background-color: var(--secondary-color);
+  justify-self: start;
+  text-decoration: none;
+  list-style: none;
 }
 main .split {
   position: absolute;
   width: 50%;
-  height: 100%;
+  height: calc(100vh - 175px);
   overflow: hidden;
 }
 main .split.left-main {
@@ -150,6 +159,10 @@ main .split.left-main {
 main .split.right-main {
   right: 0;
   background: var(--secondary-color);
+  overflow-y: auto;
+}
+main .split.right-main::-webkit-scrollbar {
+  width: 0;
 }
 main .split.left-main, main .split.right-main, main .split.left-main:before, main .split.right-main:before {
   transition: var(--speed) all ease-in-out;

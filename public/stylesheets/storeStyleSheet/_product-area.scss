@@ -1,18 +1,16 @@
 
-
-
-#protuct-area{
+#product-area{
     background: white;
-    grid-area: protuct-area;
+    grid-area: product-area;
     height: calc(100vh - 135px);
     width: 100%;
     overflow-x: hidden;
     text-align: center;
     padding-top: 10px;
-        #titel-category{
+        #title-category{
             font-size: 30rem;
         }
-        .grid-producs{ 
+        .grid-products{ 
             padding: 15px;
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const genPassword = require('../config/passwordUtils').genPassword;
 
 
 // mysql Database connection
@@ -19,11 +20,31 @@ const options = {
   createDatabaseTable: true
 }
 
-const connection = mysql.createPool(options);
+connection = mysql.createPool(options);
 
 connection.getConnection((err, connect) => {
   if (err) throw (err)
   console.log('DB connected successful ' + connect.threadId);  
 });
 
+function addNewUser(req, res){
+  console.log('addNewUser');
+  const saltHash = genPassword(req.body.password);
+  
+  const salt = saltHash.salt;
+  const hash = saltHash.hash;
+  
+  const insertQuery = "INSERT INTO users (first_name, last_name, phone, email, salt, hash) VALUES ('" + req.body.firstName + "','" + req.body.lastName + "','" +  req.body.phone + "','" +  req.body.email + "','" +  salt + "','" +  hash + "')";
+  
+  connection.query(insertQuery, (err) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log('successfully entered');
+    }
+  });
+}
+
 module.exports = connection;
+module.exports.addNewUser = addNewUser;

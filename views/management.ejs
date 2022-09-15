@@ -10,36 +10,18 @@
     <title>Management</title>
 </head>
 <body>
-    <header>
-        <div id="management-name-titel">
-            ניהול
-        </div>
-    </header>
     
-    <nav >
-        <ul id="flex-nav-container">
-            <li> <a href="#">בית</a></li>
-            <li id="category-list-btn"><a tabindex="0" href="#">קטגוריות</a>
-                <ul class="category-list" >
-                    <li><a href="">משתמשים</a></li>
-                    <li><a href="">מלאי</a></li>
-                </ul>
-            </li>
-            <li><a href="#">עלינו</a></li>
-        </ul>
-        <div class="left-nav">
-            <input class="search-bar" type="text" placeholder="חיפוש...">
-            <a href="/admin/login" id="admin-profile"><i class="fa-solid fa-circle-user"></i>
-                <div id="admin-profile-name">
-                    שלום <%= name %> 
-                </div> 
-            </a>
-            <a href="/users/logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-        </div>
-    </nav>
+    <%- include('./partials/header') %> 
+    <%- include('./partials/navbar_management') %> 
     
-    <div class="main-titel"> כותרת </div>
     <main>
+        <% if (alert) { %>
+            <div style="padding: 3px; font-size: 15rem; font-style: italic; background: rgb(57, 226, 57);"><%= alert %> </div>
+        <% } %>
+        <div class="main-header"> 
+            <a href="/management/addUser" type="button">הוסף משתמש</a>
+            <div class="main-title">כותרת</div>
+        </div>
         <div class="right-main split">
             <div class="table-container">
                 <table>
@@ -50,6 +32,7 @@
                             <th>שם משפחה</th>
                             <th>מייל</th>
                             <th>טלפון</th>
+                            <th>משתמש</th>
                             <th>מצב</th>
                             <th>פעולה</th>
                         </tr>
@@ -62,11 +45,12 @@
                                 <td> <%= row.last_name %>  </td>
                                 <td> <%= row.email %>  </td>
                                 <td> <%= row.phone %>  </td>
+                                <td> <%= row.admin %>  </td>
                                 <td> <%= row.status %>  </td>
                                 <td class="action-tb-user-table">
-                                    <a href="/management/viewUser/<%= row.id %> " type="button" class="btn-user-table"> הצג </a>
-                                    <a href="#" type="button" class="btn-user-table"> ערוך </a>
-                                    <a href="#" type="button" class="btn-user-table"> מחק </a>
+                                    <a href="/management/viewUser/<%= row.id %>" type="button" class="btn-user-table"> הצג </a>
+                                    <a href="/management/editUser/<%= row.id %>" type="button" class="btn-user-table"> ערוך </a>
+                                    <a href="/management/delete/<%= row.id %>" type="button" class="btn-user-table"> מחק </a>
                                 </td>
                             </tr>
                         <% }) %>
@@ -81,10 +65,6 @@
         </div>
     </main>
     
-    <footer>
-        <div id="info-dev">
-            <p dir="ltr">Written by Nehorai Hadad</p>
-        </div>
-    </footer>
+    <%- include('./partials/footer_management') %> 
 </body>
 </html>

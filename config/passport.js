@@ -1,4 +1,6 @@
 /*
+ ---  TO DO: README FILE
+-----------------------------
 https://www.passportjs.org/
 https://levelup.gitconnected.com/everything-you-need-to-know-about-the-passport-local-passport-js-strategy-633bbab6195
 
@@ -13,7 +15,7 @@ Here is a basic flow of our app:
 7.  The express-session middleware now takes the connect.sid value from the Cookie HTTP header, looks it up in the MongoStore (fancy way to say that it looks up the id in the database in the sessions collection), and finds it. Since the session exists, the express-session middleware does not do anything, and both the Cookie HTTP header value and the MongoStore database entry in the sessions collection stays the same.
 8.  Now, the user types in his username and password and presses the “Login” button.
 9.  By pressing the “Login” button, the user sends a POST request to the /login route, which uses the passport.authenticate() middleware.
-10. On every request so far, the passport.initialize() and passport.session() middlewares have been running. On each request, these middlewares are checking the req.session object (created by the express-session middleware) for a property called passport.user (i.e. req.session.passport.user). Since the passport.authenticate() method had not been called yet, the req.session object did not have a passport property. Now that the passport.authenticate() method has been called via the POST request to /login, Passport will execute our user-defined authentication callback using the username and password our user typed in and submitted.
+10. On every request so far, the passport.initialize() and passport.session() middleware have been running. On each request, these middleware are checking the req.session object (created by the express-session middleware) for a property called passport.user (i.e. req.session.passport.user). Since the passport.authenticate() method had not been called yet, the req.session object did not have a passport property. Now that the passport.authenticate() method has been called via the POST request to /login, Passport will execute our user-defined authentication callback using the username and password our user typed in and submitted.
 11. We will assume that the user was already registered in the database and typed in the correct credentials. The Passport callback validates the user successfully.
 12. The passport.authenticate() method now returns the user object that was validated. In addition, it attaches the req.session.passport property to the req.session object, serializes the user via passport.serializeUser(), and attaches the serialized user (i.e. the ID of the user) to the req.session.passport.user property. Finally, it attaches the full user object to req.user.
 13. The user turns off his computer and goes for another walk because our application is boring.
@@ -24,7 +26,7 @@ Here is a basic flow of our app:
 18. The user leaves his computer for 2 months.
 19. The user comes back and visits the same protected route (hint: the session has expired!)
 20. The express-session middleware runs, realizes that the value of the Cookie HTTP header has an expired cookie value, and replaces the Cookie value with a new Session via the Set-Cookie HTTP header attached to the res object.
-21. The passport.initialize() and passport.session() middlewares run, but this time, since express-session middleware had to create a new session, there is no longer a req.session.passport object!
+21. The passport.initialize() and passport.session() middleware run, but this time, since express-session middleware had to create a new session, there is no longer a req.session.passport object!
 22. Since the user did not log in and is trying to access a protected route, the route will check if req.session.passport.user exists. Since it doesn’t, access is denied!
 23. Once the user logs in again and triggers the passport.authenticate() middleware, the req.session.passport object will be re-established, and the user will again be able to visit protected routes.
 */
@@ -35,8 +37,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const connection = require('./database');
 const validPassword = require('./passwordUtils').validPassword;
 
-//By defult PASSPORT work with user name and password. 'costomFields' is the way to change that.
-const costomFields = {
+//By default PASSPORT work with user name and password. 'customFields' is the way to change that.
+const customFields = {
     usernameField: 'email',
     passwordField: 'password'
 }
@@ -45,6 +47,9 @@ const verifyCallback = (email, password, done) => {
     console.log(' in --------> verifyCallback');
     connection.query('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
         console.log(email);
+        if (user[0].status == 'לא פעיל'){
+            return done(null, false ,{message: 'משתמש לא פעיל - פנה למנהל'}); 
+        }
         if (err)
             { 
                 console.log( 'verifyCallback - err => ' + err);
@@ -74,7 +79,7 @@ const verifyCallback = (email, password, done) => {
         });
 }
 
-const strategy = new LocalStrategy(costomFields, verifyCallback);
+const strategy = new LocalStrategy(customFields, verifyCallback);
 
 passport.use(strategy);
 
