@@ -1,12 +1,11 @@
 
 header{
     background: var(--secondary-green-color);
-    // grid-area: header;
     height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
-        #management-name-titel{
+        #name-title{
             font-size: 60rem;
         }
 }

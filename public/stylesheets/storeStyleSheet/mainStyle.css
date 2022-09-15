@@ -34,7 +34,7 @@ body {
 .main-grid-container {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-areas: "header header" "nav nav" "shopping-cart-area protuct-area " "footer footer";
+  grid-template-areas: "header header" "nav nav" "shopping-cart-area product-area " "footer footer";
 }
 
 #header {
@@ -45,7 +45,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-#header #store-name-titel {
+#header #name-title {
   font-size: 60rem;
 }
 
@@ -132,19 +132,19 @@ body {
   background: var(--hover-color);
 }
 
-#protuct-area {
+#product-area {
   background: white;
-  grid-area: protuct-area;
+  grid-area: product-area;
   height: calc(100vh - 135px);
   width: 100%;
   overflow-x: hidden;
   text-align: center;
   padding-top: 10px;
 }
-#protuct-area #titel-category {
+#product-area #title-category {
   font-size: 30rem;
 }
-#protuct-area .grid-producs {
+#product-area .grid-products {
   padding: 15px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -393,7 +393,7 @@ body {
   text-align: center;
   padding-top: 10px;
 }
-#shopping-cart-area #titel-shopping-cart {
+#shopping-cart-area #title-shopping-cart {
   font-size: 30rem;
   margin-bottom: 10px;
 }

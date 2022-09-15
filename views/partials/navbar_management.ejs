@@ -1,0 +1,23 @@
+<nav>
+    <ul id="flex-nav-container">
+        <li> <a href="/management">בית</a></li>
+        <li id="category-list-btn"><a tabindex="0" href="#">קטגוריות</a>
+            <ul class="category-list" >
+                <li><a href="">משתמשים</a></li>
+                <li><a href="">מלאי</a></li>
+            </ul>
+        </li>
+        <li><a href="/">לחנות</a></li>
+    </ul>
+    <div class="left-nav">
+        <form action="/management" method="POST" novalidate>
+            <input class="search-bar" type="search" name="search" placeholder="חיפוש...">
+        </form>
+        <a href="/users/login" id="admin-profile"><i class="fa-solid fa-circle-user"></i>
+            <div id="admin-profile-name">
+                שלום <%= name %> 
+            </div> 
+        </a>
+        <a href="/users/logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    </div>
+</nav>

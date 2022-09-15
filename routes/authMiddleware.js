@@ -7,17 +7,17 @@ module.exports.isAuth = (req, res, next) => {
         res.render('index', {name: req.user[0].first_name});
     } else {
         // res.status(401).json({ msg: 'You are not authorized to view this resource' });
-        res.redirect('/users/login');
+        res.render('/users/login');
     }
 }
 
 module.exports.isAdmin = (req, res, next) => {
     console.log('In ==> isAdmin');
     
-    if (req.isAuthenticated() && req.user.admin) {
+    if (req.isAuthenticated() && req.user[0].admin == "מנהל") {
         next();
     } else {
-        res.status(401).json({ msg: 'You are not authorized to view this resource because you are not an admin.' });
+        res.status(401).json({ msg: 'You are not authorized to view this resource because you are not an admin.'});
     }
 }
 
@@ -30,7 +30,7 @@ function userExists(req, res, done) {
         }
         if (results.length) {
             console.log('user exist already');
-            res.render('sighUp', {alertUserExist: 'משתמש זה כבר קיים במערכת'});
+            res.redirect('sighUp', {alertUserExist: 'משתמש זה כבר קיים במערכת'});
         }
         else{
             done();

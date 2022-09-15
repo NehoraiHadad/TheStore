@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="\stylesheets\managementStyleSheet\management_viewUser.css">
+    <!-- <script src="/javascripts/script.js" async></script> -->
+    <script src="https://kit.fontawesome.com/ed3b3b4124.js" crossorigin="anonymous" async></script>
+    <title>add user </title>
+</head>
+<body>
+
+<%- include ('./partials/header') %>   
+<%- include('./partials/navbar_management') %> 
+
+  <main>
+    <% if (alert) { %>
+        <div style="padding: 3px; font-size: 15rem; font-style: italic; background: rgb(57, 226, 57);"><%= alert %> </div>
+    <% } %>
+    <form action="" method="post">
+
+        <div class="main-titel"> כותרת </div>
+        <div >
+      <div >
+          <input type="text"  placeholder="First Name" name="first_name">
+          <label for="floatingInput">First Name</label>
+        </div>
+    </div>
+    <div >
+        <div >
+            <input type="text"  placeholder="Last Name" name="last_name">
+            <label for="floatingInput">Last Name</label>
+        </div>
+    </div>
+    <div >
+        <div >
+            <input type="email" placeholder="email@email.com" name="email">
+            <label for="floatingInput">Email</label>
+        </div>
+    </div>
+    <div >
+        <div >
+            <input type="text" placeholder="Phone" name="phone">
+            <label for="floatingInput">Phone</label>
+        </div>
+    </div>
+    <div>
+        <input type="password" value="123456789" name="password" id="password" placeholder="סיסמה">
+        <label for="password"></label>
+    </div>
+    <button type="submit">אישור</button>
+</form>
+</main>
+
+  <footer>
+      <div id="info-dev">
+          <p dir="ltr">Written by Nehorai Hadad</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
