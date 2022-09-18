@@ -54,7 +54,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// render & router
+// router
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/management', managementRouter); 
