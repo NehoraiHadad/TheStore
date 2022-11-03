@@ -1,0 +1,28 @@
+<div class="form">
+    <label for="floatingInput">שם פרטי</label>
+    <input type="text"  value=" <%= row[0].first_name %> " placeholder="שם פרטי" name="first_name">
+
+    <label for="floatingInput">שם משפחה</label>
+    <input type="text"  value="<%= row[0].last_name %>" placeholder="שם משפחה" name="last_name">
+
+    <label for="floatingInput">מייל</label>
+    <input type="email"  value="<%= row[0].email %>" placeholder="email@email.com" name="email">
+
+    <label for="floatingInput">פלאפון</label>
+    <input type="text"  value="<%= row[0].phone %>" placeholder="פלאפון" name="phone">
+
+    <label for="floatingInput">מנהל?</label>
+    <input type="text"  value="<%= row[0].admin %>" placeholder="מנהל?" name="admin">
+
+    <label for="floatingInput">מצב</label>
+    <input type="text"  value="<%= row[0].status %>" placeholder="פעיל / לא פעיל" name="status">
+
+    <button id="btnFormUser" type="submit">אישור</button>
+
+    <script>
+        if (document.title == 'View User <%= row[0].id %>') {
+            const user = document.getElementById('btnFormUser');
+            user.classList.add('hide');
+        }
+    </script>
+</div>

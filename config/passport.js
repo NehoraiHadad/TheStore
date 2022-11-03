@@ -46,7 +46,6 @@ const customFields = {
 const verifyCallback = (email, password, done) => {
     console.log(' in --------> verifyCallback');
     connection.query('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
-        console.log(email);
         if (user[0].status == 'לא פעיל'){
             return done(null, false ,{message: 'משתמש לא פעיל - פנה למנהל'}); 
         }
@@ -68,7 +67,6 @@ const verifyCallback = (email, password, done) => {
         if(isValid)
             {   
                 console.log('isValid');
-                console.log(user);
                 return done (null, user);
             }
         else 
@@ -91,9 +89,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => {
     console.log('in deSerializeUser ------> ');
-
     connection.query('SELECT * FROM users WHERE id = ?', [user.id], (err, user) => {
-        console.log( 'result => ' + user.id);
         done(null, user)
     });
 });

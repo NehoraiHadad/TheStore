@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="\stylesheets\managementStyleSheet\management_form.css">
     <script src="/javascripts/management.js" async></script>
     <script src="https://kit.fontawesome.com/ed3b3b4124.js" crossorigin="anonymous" async></script>
-    <title>Edit User <%= row[0].id %> </title>
+    <title>Edit product <%= row[0].id %> </title>
 </head>
 <body>
 
@@ -16,14 +16,16 @@
 
   <main>
     <div class="main-header"> 
-        <div class="main-title"> ערוך את <%= row[0].first_name %></div>
+        <div class="main-title"> ערוך את <%= row[0].name %></div>
     </div>
     <% if (alert) { %>
         <div style="padding: 3px; font-size: 15rem; font-style: italic; background: rgb(57, 226, 57);"><%= alert %> </div>
     <% } %>
     <form action="" method="post">
-    <%- include ('./partials/userForm') %> 
-</form>
+
+        <%- include ('./partials/productForm') %> 
+    </form>
+    <img src="<%= row[0].photo %>" alt="">
 </main>
 
 <%- include ('./partials/footer_management') %>   

@@ -1,0 +1,89 @@
+<main>
+        <% if (alert) { %>
+            <div style="padding: 3px; font-size: 15rem; font-style: italic; background: rgb(57, 226, 57);"><%= alert %> </div>
+        <% } %>
+
+        <div class="main-header"> 
+            <a class="add-user-link" href="/management/addUser" type="button">הוסף משתמש</a>
+            <div class="main-title">כותרת</div>
+            <a class="add-product-link" href="/management/addProduct" type="button">הוסף מוצר</a>
+        </div>
+        <div class="right-main split">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>מס' סידורי</th>
+                            <th>שם פרטי</th>
+                            <th>שם משפחה</th>
+                            <th>מייל</th>
+                            <th>טלפון</th>
+                            <th>משתמש</th>
+                            <th>מצב</th>
+                            <th>פעולה</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% userRows.forEach(userRow => { %>
+                            <tr>
+                                <td> <%= userRow.id %>  </td>
+                                <td> <%= userRow.first_name %>  </td>
+                                <td> <%= userRow.last_name %>  </td>
+                                <td> <%= userRow.email %>  </td>
+                                <td> <%= userRow.phone %>  </td>
+                                <td> <%= userRow.admin %>  </td>
+                                <td> <%= userRow.status %>  </td>
+                                <td class="action-tb-user-table">
+                                    <a href="/management/viewUser/<%= userRow.id %>" type="button" class="btn-user-table"> הצג </a>
+                                    <a href="/management/editUser/<%= userRow.id %>" type="button" class="btn-user-table"> ערוך </a>
+                                    <a href="/management/delete/<%= userRow.id %>" type="button" class="btn-user-table"> מחק </a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="left-main split">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>מס' סידורי</th>
+                            <th>שם</th>
+                            <th>מחיר</th>
+                            <th>מבצע</th>
+                            <th>קטגוריה</th>
+                            <th>מלאי</th>
+                            <th>תמונה</th>
+                            <th>פעולה</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% productRows.forEach(productRow => { %>
+                            <tr class="table-row-product">
+                                <td> <%= productRow.id %>  </td>
+                                <td> <%= productRow.name %>  </td>
+                                <td> <%= productRow.price %>  </td>
+                                <td> <%= productRow.sale %>  </td>
+                                <td> <%= productRow.category %>  </td>
+                                <td> <%= productRow.stock %>  </td>
+                                <td> <%= productRow.photo %>  
+                                    <img class="img-product-mgmt hide" src="<%= productRow.photo %>" alt="<%= productRow.photo %>">
+                                </td>
+                                <td class="action-tb-Product-table">
+                                    <a href="/management/viewProduct/<%= productRow.id %>" type="button" class="btn-Product-table"> הצג </a>
+                                    <a href="/management/editProduct/<%= productRow.id %>" type="button" class="btn-Product-table"> ערוך </a>
+                                    <a href="/management/notInStock/<%= productRow.id %>" type="button" class="btn-Product-table"> לא במלאי </a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="diagram-container">
+                
+            </div>
+        </div>
+    </main>

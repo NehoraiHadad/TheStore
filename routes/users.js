@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const passport = require('passport');
-// const connection = require('../config/database');
 const isAuth = require('./authMiddleware').isAuth;
 const isAdmin = require('./authMiddleware').isAdmin;
 const userExists = require('./authMiddleware').userExists;

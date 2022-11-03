@@ -18,53 +18,44 @@
         <% if (alert) { %>
             <div style="padding: 3px; font-size: 15rem; font-style: italic; background: rgb(57, 226, 57);"><%= alert %> </div>
         <% } %>
+
         <div class="main-header"> 
-            <a href="/management/addUser" type="button">הוסף משתמש</a>
-            <div class="main-title">כותרת</div>
+            <div class="main-title">ראשי</div>
         </div>
-        <div class="right-main split">
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>מס' סידורי</th>
-                            <th>שם פרטי</th>
-                            <th>שם משפחה</th>
-                            <th>מייל</th>
-                            <th>טלפון</th>
-                            <th>משתמש</th>
-                            <th>מצב</th>
-                            <th>פעולה</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% rows.forEach(row => { %>
-                            <tr>
-                                <td> <%= row.id %>  </td>
-                                <td> <%= row.first_name %>  </td>
-                                <td> <%= row.last_name %>  </td>
-                                <td> <%= row.email %>  </td>
-                                <td> <%= row.phone %>  </td>
-                                <td> <%= row.admin %>  </td>
-                                <td> <%= row.status %>  </td>
-                                <td class="action-tb-user-table">
-                                    <a href="/management/viewUser/<%= row.id %>" type="button" class="btn-user-table"> הצג </a>
-                                    <a href="/management/editUser/<%= row.id %>" type="button" class="btn-user-table"> ערוך </a>
-                                    <a href="/management/delete/<%= row.id %>" type="button" class="btn-user-table"> מחק </a>
-                                </td>
-                            </tr>
-                        <% }) %>
-                </tbody>
-                </table>
+
+        <div class="right-main split">  
+            <div class="form-container">
+                <form method="post" action="">
+                        <label for="floatingInput">שם החנות: </label>
+                        <input type="text" name="storeName" value="<%= costumerServicesStore.storeName %>" placeholder="שם החנות">
+                        <label for="floatingInput">מייל שירות לקוחות: </label>
+                        <input type="text" name="storeMail" value="<%= costumerServicesStore.storeMail %>" placeholder="מייל שירות לקוחות">
+                        <label for="floatingInput">טלפון שירות לקוחות: </label>
+                        <input type="text" name="storePhone" value="<%= costumerServicesStore.storePhone %>" placeholder="טלפון שירות לקוחות">
+                        <label for="floatingInput">כתובת החנות: </label>
+                        <input type="text" name="storeAddress" value="<%= costumerServicesStore.storeAddress %>" placeholder="כתובת החנות">
+                        <label for="floatingInput">קטגוריות: </label>
+                    <div class="categories">
+                        <select class="categorySelect" name="categorySelect" value="" placeholder="קטגוריות">
+                            <option class="categoryItem" value="הוסף קטגוריה">הוסף קטגוריה</option>
+                            <% categoryArray.forEach(category => { %>
+                                <option class="categoryItem" value="<%= category.slice(1,-1) %> "><%= category.slice(1,-1) %></option>
+                            <% }) %>
+                        </select>
+                        <input name="category" class="categoryInput" type="text" value="" placeholder="הוסף קטגוריה">
+                    </div>
+                        <button type="submit" value="submit">אישור</button>
+                </form>
             </div>
         </div>
+
         <div class="left-main split">
             <div class="diagram-container">
                 
             </div>
         </div>
     </main>
-    
+
     <%- include('./partials/footer_management') %> 
 </body>
 </html>

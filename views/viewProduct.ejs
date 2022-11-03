@@ -7,21 +7,27 @@
     <link rel="stylesheet" href="\stylesheets\managementStyleSheet\management_form.css">
     <script src="/javascripts/management.js" async></script>
     <script src="https://kit.fontawesome.com/ed3b3b4124.js" crossorigin="anonymous"></script>
-    <title>View User <%= row[0].id %> </title>
+    <title>view Product <%= row[0].id %> </title>
 </head>
 
 <%- include ('./partials/header') %>   
 <%- include('./partials/navbar_management') %> 
 
 <body>
-  <main>
-    <div class="main-header"> 
-      <div class="main-title"> צפייה ב <%= row[0].first_name %></div>
-  </div>
-  <%- include ('./partials/userForm') %> 
-  </main>
+    <main>
+        <div class="main-header"> 
+            <div class="main-title"> צפייה ב <%= row[0].name %></div>
+        </div>
+        <form action="" method="post">
 
-  <%- include ('./partials/footer_management') %>   
+            <%- include ('./partials/productForm') %> 
+    
+     </form>
+     <img src="<%= row[0].photo %>" alt="">
+
+    </main>
+
+    <%- include ('./partials/footer_management') %>   
 
 </body>
 

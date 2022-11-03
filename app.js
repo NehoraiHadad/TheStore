@@ -32,8 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const sessionStore = new MySQLStore({createDatabaseTable: true, collection: 'session'}, connection);
 
 app.use(session({
-  name: 'bla',
-  secret: 'bla secret',
+  name: 'user',
+  secret: 'user secret',
   resave: false,
   saveUninitialized: true,
   store: sessionStore,
@@ -42,14 +42,12 @@ app.use(session({
   }
 }));
 
-
 // passport
 require('./config/passport');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
   console.log( 'log from app.js -----> ');
-  console.log(req.session);
   console.log(req.user);
   next();
 });

@@ -180,7 +180,8 @@ function fullCardPop(e) {
     let quantity = cardContent.getElementsByClassName('quantity-card-product')[0].value;
     let price = cardContent.getElementsByClassName('price-card-product')[0].innerHTML;
     let imgSrc = cardContent.getElementsByClassName('img-card-product')[0].src;
-    popCardUpdate(cardContent, name, quantity, price, imgSrc);
+    let details = cardContent.getElementsByClassName('full-card-details-hide')[0].innerHTML;
+    popCardUpdate(cardContent, name, quantity, price, imgSrc, details);
 
     fullCard.classList.remove('hide');
     document.getElementById('overlay-blur').classList.remove('hide');
@@ -199,16 +200,29 @@ function closeModel(){
     } ,200 )
 }
 
-function popCardUpdate(cardContent, name, quantity, price, imgSrc){
+let photoFullCard = async (el_fullCardView, photoUrl) => {
+    el_fullCardView.getElementsByClassName('full-card-img')[0].src = photoUrl;
+}
+
+let fullCardDetails = (cardContent, name, quantity, price, imgSrc, details) => {
+
+    let promiseDetails = new Promise((resolve, reject) => {
+        
+    
     let el_fullCardView = document.getElementById('full-card-view');
     let cartItemContent = `
-        <img src="${imgSrc}" alt="full" class="full-card-img">
-        <h1 class="full-card-name">${name}</h1>
-        <h2 class="full-card-price">${price}</h2>
-        <div class="full-quantity-btn">
-            <input class="full-card-quantity" type="number" value="${quantity}" name="quantity" id="quantity" min="0" max="50">
-            <button class="full-card-btn">הוסף לסל</button>
-        </div>   `    
+    <img src="" alt="full" class="full-card-img">
+    <h1 class="full-card-name">${name}</h1>
+    <h2 class="full-card-price">${price}</h2>
+    <div class="full-quantity-btn">
+        <input class="full-card-quantity" type="number" value="${quantity}" name="quantity" id="quantity" min="0" max="50">
+        <button class="full-card-btn">הוסף לסל</button>
+    </div>
+    <div id="full-card-details">
+        <h1>פרטים נוספים:</h1>
+        <p> ${details} </p>
+    </div> `    
+    
     el_fullCardView.innerHTML = cartItemContent;
     el_fullCardView.getElementsByClassName('full-card-quantity')[0].addEventListener('change',() => {
         quantityChanged;
@@ -225,5 +239,24 @@ function popCardUpdate(cardContent, name, quantity, price, imgSrc){
             cardContent.getElementsByClassName('btn-card-product')[0].click();
         }
     });
+
+    resolve();
+});
+return promiseDetails;
 }
 
+let popCardUpdate = async (cardContent, name, quantity, price, imgSrc, details) => {
+    let el_fullCardView = document.getElementById('full-card-view');
+
+    await fullCardDetails(cardContent, name, quantity, price, imgSrc, details);
+    photoFullCard(el_fullCardView, imgSrc);
+}
+
+// update navbar links
+// let categoryLinks = document.getElementsByClassName('category-links');
+// for ( let category of categoryLinks){
+//     console.log(category.innerHTML);
+//     category.addEventListener('click', ()=>{
+//         console.log(category);
+//     })
+// }

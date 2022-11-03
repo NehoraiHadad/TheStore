@@ -95,10 +95,13 @@ nav .left-nav #user-profile-name {
   display: none;
 }
 nav .left-nav #user-profile:hover #user-profile-name {
+  background: var(--hover-color);
+  padding: 5px;
   font-size: 20rem;
   position: absolute;
   left: 50px;
   display: block;
+  color: black;
 }
 
 .category-list {
@@ -129,20 +132,26 @@ main {
   height: calc(100vh - 135px);
   position: relative;
   width: 100%;
+  font-size: 10rem;
 }
 main .main-header {
   display: flex;
   align-content: center;
+  justify-content: space-between;
   height: 40px;
   padding: 5px;
   font-size: 25rem;
 }
-main .main-header .main-title {
-  justify-self: center;
-}
-main .main-header a {
+main .main-header .add-user-link {
   background-color: var(--secondary-color);
-  justify-self: start;
+  text-decoration: none;
+  list-style: none;
+}
+main .main-header .main-title {
+  font-size: 25rem;
+}
+main .main-header .add-product-link {
+  background-color: var(--secondary-color);
   text-decoration: none;
   list-style: none;
 }
@@ -187,6 +196,27 @@ main .split.left-main, main .split.right-main, main .split.left-main:before, mai
 .right-main {
   padding: 20px;
 }
+.right-main form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 200rem;
+}
+.right-main form input {
+  padding: 5px;
+  height: 25px;
+  width: 100%;
+}
+.right-main form .categories {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 200rem;
+}
+.right-main form button {
+  margin-top: 7px;
+  height: 25px;
+}
 .right-main table {
   border-collapse: collapse;
   font-size: 20rem;
@@ -209,8 +239,19 @@ main .split.left-main, main .split.right-main, main .split.left-main:before, mai
 .right-main table tr:nth-child(even) {
   background-color: var(--primary-color);
 }
+.right-main table td .img-product-mgmt {
+  display: none;
+}
 .right-main table tr:hover {
   background-color: var(--hover-color);
+}
+.right-main table tr:hover .img-product-mgmt {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .action-tb-user-table {
@@ -219,6 +260,49 @@ main .split.left-main, main .split.right-main, main .split.left-main:before, mai
   justify-content: flex-end;
 }
 .action-tb-user-table .btn-user-table {
+  text-decoration: none;
+  color: black;
+  background-color: var(--primary-color);
+  border: 1px solid var(--hover-color);
+  margin: 0px 3px;
+  padding: 0px 3px;
+}
+
+.left-main {
+  padding: 20px;
+}
+.left-main table {
+  border-collapse: collapse;
+  font-size: 20rem;
+  width: 100%;
+}
+.left-main table th {
+  background: var(--hover-color);
+}
+.left-main table td, .left-main table th {
+  border: 1px solid var(--primary-color);
+  padding: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.left-main table td .btn-Product-table:hover, .left-main table th .btn-Product-table:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: all ease-in-out 0.3s;
+}
+.left-main table tr:nth-child(even) {
+  background-color: var(--primary-color);
+}
+.left-main table tr:hover {
+  background-color: var(--hover-color);
+}
+
+.action-tb-Product-table {
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+}
+.action-tb-Product-table .btn-Product-table {
   text-decoration: none;
   color: black;
   background-color: var(--primary-color);
