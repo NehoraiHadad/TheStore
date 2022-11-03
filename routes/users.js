@@ -1,8 +1,5 @@
 const router = require('express').Router();
-const { json } = require('body-parser');
 const passport = require('passport');
-const genPassword = require('../config/passwordUtils').genPassword;
-const connection = require('../config/database');
 const isAuth = require('./authMiddleware').isAuth;
 const isAdmin = require('./authMiddleware').isAdmin;
 const userExists = require('./authMiddleware').userExists;
@@ -17,16 +14,15 @@ router.get('/login', (req, res) => {
     let errorMessage = req.session.messages[Object.keys(req.session.messages)[lastInMessages]];
     res.render('login', {failureMessage: true, userNotExist: errorMessage });  //uses EJS to show alert
   }
-  else{
+  else {
     res.render('login', {failureMessage: true, userNotExist: '' });  //uses EJS to show alert
   }
-}); 
-
-router.get('/sighup',  (req, res) => {
-  console.log(' in route -- sighup ---> ');
-  res.render('sighUp', {alertUserExist: ''}); //uses EJS to show alert
 });
 
+router.get('/sighup',  (req, res) => {
+  console.log(' in route /sighup ---> ');
+  res.render('sighUp', {alertUserExist: ''}); //uses EJS to show alert
+});
 
 router.get('/logout', (req, res) => {
           req.logout(function(err) {

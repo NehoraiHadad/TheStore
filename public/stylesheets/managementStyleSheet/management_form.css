@@ -73,10 +73,13 @@ nav .left-nav #user-profile-name {
   display: none;
 }
 nav .left-nav #user-profile:hover #user-profile-name {
+  background: var(--hover-color);
+  padding: 5px;
   font-size: 20rem;
   position: absolute;
   left: 50px;
   display: block;
+  color: black;
 }
 
 .category-list {
@@ -127,12 +130,37 @@ body {
 
 main {
   height: calc(100vh - 135px);
+  font-size: 10rem;
 }
 main .main-title {
   text-align: center;
   height: 40px;
   padding: 5px;
   font-size: 25rem;
+}
+main .form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 200rem;
+}
+main .form input {
+  padding: 5px;
+  height: 25px;
+  width: 100%;
+}
+main .form button {
+  margin-top: 7px;
+  height: 25px;
+}
+main img {
+  display: block;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 80rem;
+  top: 250rem;
 }
 
 footer {
@@ -144,4 +172,4 @@ footer {
 }
 footer #info-dev {
   font-size: 10rem;
-}/*# sourceMappingURL=management_viewUser.css.map */
+}/*# sourceMappingURL=management_form.css.map */

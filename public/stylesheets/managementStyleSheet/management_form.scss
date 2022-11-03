@@ -25,12 +25,36 @@ body{
 
 main{
     height: calc(100vh - 135px);
-
+    font-size: 10rem;
     .main-title{
         text-align: center;
         height: 40px;
         padding: 5px;
         font-size: 25rem;
+      }
+      .form{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        max-width: 200rem;
+        input{
+          padding: 5px;
+          height: 25px;
+          width: 100%;
+        }
+        button{
+          margin-top: 7px;
+          height: 25px;
+        }
+      }
+      img{
+        display: block;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        left: 80rem;
+        top: 250rem
       }
 }
 

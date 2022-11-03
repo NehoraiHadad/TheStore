@@ -103,10 +103,13 @@ body {
   display: none;
 }
 #nav .left-nav #user-profile:hover #user-profile-name {
+  background: var(--hover-color);
+  padding: 5px;
   font-size: 20rem;
   position: absolute;
   left: 50px;
   display: block;
+  color: black;
 }
 
 .category-list {
@@ -157,7 +160,6 @@ body {
   background: white;
   gap: 5px;
   grid-template-areas: "img-card-product img-card-product" "name-card-product name-card-product" "price-card-product price-card-product" "quantity-btn-card quantity-btn-card";
-  border: solid 1px var(--hover-color);
   border-radius: 2px;
 }
 .grid-card-product:hover {

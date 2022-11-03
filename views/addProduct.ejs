@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="\stylesheets\managementStyleSheet\management_form.css">
+    <script src="/javascripts/management.js" async></script>
+    <script src="https://kit.fontawesome.com/ed3b3b4124.js" crossorigin="anonymous" async></script>
+    <title>add product</title>
+</head>
+<body>
+
+    <%- include ('./partials/header') %>   
+    <%- include('./partials/navbar_management') %> 
+
+    <main>
+        <div class="main-header"> 
+            <div class="main-title">הוסף מוצר</div>
+        </div>
+    <% if (alert) { %>
+        <div style="padding: 3px; font-size: 15rem; font-style: italic; background: rgb(57, 226, 57);"><%= alert %> </div>
+    <% } %>
+    <form action="" method="post">
+        <div class="form">
+            <label for="floatingInput"> שם המוצר </label>
+            <input type="text"  value="" placeholder="שם המוצר" name="name">
+
+            <label for="floatingInput"> מחיר </label>
+            <input type="text"  value="" placeholder="מחיר" name="price">
+
+            <label for="floatingInput"> פרטים נוספים </label>
+            <input type="text"  value="" placeholder="פרטים נוספים" name="details">
+
+            <label for="floatingInput"> קטגוריה </label>
+            <select class="categorySelect" name="category" value="" placeholder="קטגוריות">
+                <% categoryArray.forEach(category => { %>
+                    <option class="categoryItem" value="<%= category.slice(1,-1) %> "><%= category.slice(1,-1) %></option>
+                <% }) %>
+            </select>
+
+            <label for="floatingInput"> מבצע </label>
+            <input type="text"  value="" placeholder="מבצע" name="sale">
+
+            <label for="floatingInput"> מלאי </label>
+            <input type="text"  value="" placeholder="מלאי" name="stock">
+
+            <label for="floatingInput"> תמונה </label>
+            <input type="text"  value="" placeholder="תמונה" name="photo">
+            <input type="file" name="img" id="img-up" accept="image/*" placeholder="בחר תמונה">
+            
+            <button type="submit"> אישור </button>
+        </div>
+    </form>
+    </main>
+</body>
+
+<%- include ('./partials/footer_management') %>   
+    
+</html>

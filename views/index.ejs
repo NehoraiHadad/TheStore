@@ -7,56 +7,47 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/storestylesheet/mainStyle.css">
     <script src="/javascripts/script.js" async></script>
     <script src="https://kit.fontawesome.com/ed3b3b4124.js" crossorigin="anonymous"></script>
-    <title>TheShop</title>
+    <title> <%= costumerServicesStore.storeName %> </title>
 </head>
 <body>
     <div id="main-layout" class="main-grid-container">
       
-        <%- include ('./partials/header') %>   
-        <%- include('./partials/navbar') %> 
+        <%- include ('./partials/header') %>
+        <%- include('./partials/navbar') %>
         
         <div id="product-area">
-            <h2 id="title-category">כותרת הקטגוריה</h2>
+            <h2 id="title-category"> 
+                <% if (products[0] && products[0].sale == 'כן') { %>
+                 במבצע!
+                    <% } else if( products[0] && products[0].category != products[Object.keys(products).length-1].category) { %>
+                        ראשי 
+                        <% } else if (products[0]) { %>  
+                            <%= products[0].category %>
+                            <% } else { %>
+                                לא קיימים פריטים בקטגוריה
+                                <% } %>
+            </h2>
             <div id="products-card" class="grid-products">
-                <div class="grid-card-product ">
-                    <img class="img-card-product" src="\images\cucumber1.jpg" alt="">
-                    <h1 class="name-card-product">מלפפון</h1>
-                    <h2 class="price-card-product">3.80 ₪</h2>
-                    <div class="quantity-btn-card">
-                        <input class="quantity-card-product" type="number" name="quantity" id="quantity" min="0" max="50">
-                        <button class="btn-card-product">הוסף לסל</button>
-                    </div>
-                </div>
 
-
-                <div class="grid-card-product">
-                    <img src="/images/tomato1.jpg" alt="" class="img-card-product">
-                    <h1 class="name-card-product">עגבניה</h1>
-                    <h2 class="price-card-product">2.80 ₪</h2>
-                    <div class="quantity-btn-card">
-                        <input class="quantity-card-product" type="number" name="quantity" id="quantity" min="0" max="50">
-                        <button class="btn-card-product">הוסף לסל</button>
-                    </div>
-                </div>
-
-                <div class="grid-card-product">
-                    <img src="/images/batzall.jpg" alt="" class="img-card-product">
-                    <h1 class="name-card-product">בצל</h1>
-                    <h2 class="price-card-product">1.90 ₪</h2>
-                    <div class="quantity-btn-card">
-                        <input class="quantity-card-product" type="number" name="quantity" id="quantity" min="0" max="50">
-                        <button class="btn-card-product">הוסף לסל</button>
-                    </div>
-                </div>
+                    <% products.forEach(product => { %>
+                        
+                        <div class="grid-card-product ">
+                            <img class="img-card-product" src="<%= product.photo %>" alt="">
+                            <h1 class="name-card-product"><%= product.name %></h1>
+                            <h2 class="price-card-product"><%= product.price %> ₪</h2>
+                            <div class="quantity-btn-card">
+                                <input class="quantity-card-product" type="number" name="quantity" id="quantity" min="0" max="50">
+                                <button class="btn-card-product">הוסף לסל</button>
+                            </div>
+                            <div class="full-card-details-hide hide"><%= product.details %> </div>
+                        </div>
+                        
+                        <% }) %>
             </div>
 
             <div id="full-card-product" class="hide">
                 <div id="full-card-view">
                     <!-- content will by added here -->
-                </div>
-                <div id="full-card-details">
-                    <h1>פרטים נוספים:</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quia voluptatum magni aperiam harum corrupti quidem vitae eius? Officiis sequi deleniti nostrum quaerat, tempore alias quasi obcaecati nisi perspiciatis ab?</p>
                 </div>
             </div>
             <div id="overlay-blur" class="hide"></div>

@@ -3,18 +3,18 @@
         <li> <a href="/management">בית</a></li>
         <li id="category-list-btn"><a tabindex="0" href="#">קטגוריות</a>
             <ul class="category-list" >
-                <li><a href="">משתמשים</a></li>
-                <li><a href="">מלאי</a></li>
+                <li><a href="/management/users">משתמשים</a></li>
+                <li><a href="/management/products">מלאי</a></li>
             </ul>
         </li>
         <li><a href="/">לחנות</a></li>
     </ul>
     <div class="left-nav">
-        <form action="/management" method="POST" novalidate>
-            <input class="search-bar" type="search" name="search" placeholder="חיפוש...">
-        </form>
-        <a href="/users/login" id="admin-profile"><i class="fa-solid fa-circle-user"></i>
-            <div id="admin-profile-name">
+            <form action="" method="POST" novalidate>
+                <input class="search-bar" type="search" name="search" placeholder="חיפוש...">
+            </form>
+        <a href="/users/login" id="user-profile"><i class="fa-solid fa-circle-user"></i>
+            <div id="user-profile-name">
                 שלום <%= name %> 
             </div> 
         </a>

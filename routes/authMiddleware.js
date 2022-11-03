@@ -1,18 +1,26 @@
 const connection = require("../config/database");
+const mainInfoController = require('../controller/mainInfoController');
+const productController = require('../controller/productController');
 
-module.exports.isAuth = (req, res, next) => {
-    console.log('In ==> isAuth');
+
+module.exports.isAuth = async (req, res, next) => {
+    console.log('In ==============> isAuth');
+
+    const categoryArray = await mainInfoController.categoryList();
+    const costumerServicesStore = await mainInfoController.costumerServicesStore();
+    const allProducts = await productController.allProduct();
     console.log(req.isAuthenticated());
     if (req.isAuthenticated()) {
-        res.render('index', {name: req.user[0].first_name});
+        res.render('index', {name: req.user[0].first_name, costumerServicesStore: costumerServicesStore[0], products: allProducts, category: categoryArray});
     } else {
         // res.status(401).json({ msg: 'You are not authorized to view this resource' });
-        res.render('/users/login');
+        res.redirect('/users/login');
     }
 }
 
+
 module.exports.isAdmin = (req, res, next) => {
-    console.log('In ==> isAdmin');
+    console.log('In ================> isAdmin');
     
     if (req.isAuthenticated() && req.user[0].admin == "מנהל") {
         next();

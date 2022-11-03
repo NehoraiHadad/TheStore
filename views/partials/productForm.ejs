@@ -1,0 +1,46 @@
+<div class="form">
+    <label for="floatingInput">שם</label>
+    <input type="text"  value="<%= row[0].name %> " placeholder="Name" name="name">
+        
+    <label for="floatingInput">מחיר</label>
+    <input type="text"  value="<%= row[0].price %>" placeholder="מחיר" name="price">
+        
+    <label for="floatingInput">פרטים נוספים</label>
+    <input type="text"  value="<%= row[0].details %>" placeholder="פרטים נוספים" name="details">
+        
+    <label for="floatingInput">קטגוריה</label>
+    <select class="categorySelect" name="category" value="" placeholder="קטגוריות">
+        <% categoryArray.forEach(category => { %>
+            <option class="categoryItem" value="<%= category.slice(1,-1) %> " <% if ( row[0].category ==  category.slice(1,-1)) { %>
+                selected
+            <% } %> > <%= category.slice(1,-1) %></option>
+        <% }) %>
+    </select>
+        
+    <label for="floatingInput">מבצע</label>
+    <input type="text"  value="<%= row[0].sale %>" placeholder="מבצע" name="sale">
+
+    <label for="floatingInput">מלאי</label>
+    <input type="text"  value="<%= row[0].stock %>" placeholder="מלאי" name="stock">
+
+    <label for="floatingInput">תמונה</label>
+    <input type="text"  value="<%= row[0].photo %>" placeholder="תמונה" name="photo">
+    <label for="img-up">
+        <input type="file" name="img" id="img-up" accept="image/*">
+    </label>
+
+    
+    <button id="btnProductForm" type="submit">אישור</button>
+    <script>
+        if (document.title != 'Edit product <%= row[0].id %>') {
+            const img = document.getElementById('img-up');
+            img.classList.add('hide');
+        }
+        
+        if (document.title != 'Edit product <%= row[0].id %>') {
+            const product = document.getElementById('btnProductForm');
+            product.classList.add('hide');
+        }
+        
+    </script>
+</div>
